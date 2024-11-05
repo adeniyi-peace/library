@@ -96,6 +96,8 @@ class BookListView(ListView):
     def get_context_data(self, **kwargs) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
 
+        context["genres"] = Genre.objects.all().order_by("?")[:7]
+
         if search:=self.request.GET.get("search") :
             filter = Q(title__icontains=search)|Q(author__full_name__contains=search)
             books = self.model.objects.filter(filter)
