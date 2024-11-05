@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{author.full_name}}{% endblock title %}
+{% block styles %}<link rel="stylesheet" href="{% static "book_management/author_details.css" %}">{% endblock styles %}
+
+{% block content %}
+<section id="author-detail">
+    <div id="author-pic">
+        <img src="{{author.image.url}}" alt="{{author.full_name}}">
+    </div>
+
+    <div>
+        <div id="author-name">
+            <h1>{{author.full_name}}</h1>
+            <p>D.O.B: {{author.DOB}}</p>
+            <p>Nationality: {{author.nationality}}</p>
+            
+        </div>
+
+        <div id="author-bio">
+            <h2>Biography</h2>
+            {{author.biography|linebreaks}}
+        </div>
+        
+        
+    </div>
+</section>
+
+<div id="genre">
+    <h2> Genres {{author.full_name}} writes </h2>
+    <p> {% for genre in author.genre.all %} 
+        <a href="{% url "genrelist" genre %}">{{genre|title}}</a> 
+        {% endfor %}</p>
+</div>
+
+<section id="related-works">
+    <h2>Books by {{author.full_name}}</h2>
+    <ul>
+        {% for book in books %}
+        <li>
+            <a href="{% url "book_detail" book.slug %}">
+                <img src="{{book.cover_image.url}}" alt={{book.title}}>
+                <p>{{book.title}}</p>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+
+</section>
+
+{% endblock content %}

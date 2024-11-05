@@ -1,0 +1,165 @@
+
+
+.page-wrapper {
+    display: flex;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Book Details */
+.book-details {
+    display: flex;
+    margin-bottom: 40px;
+}
+
+.book-cover-wrapper {
+    margin-right: 40px;
+}
+
+.book-cover {
+    width: 220px;
+    height: 330px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.book-info {
+    flex: 1;
+}
+
+.book-title {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.book-author a{
+    font-size: 1.5rem;
+    color: #666;
+    margin-bottom: 20px;
+    text-decoration: none;
+}
+
+.book-description a{
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    line-height: 1.5;
+    color: #666;
+    text-decoration: none;
+}
+
+.book-author a:hover,
+.book-author a:active,
+.book-description a:hover,
+.book-description a:active{
+    background-color: #333;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    color: #fff;
+}
+
+.start-reading-btn {
+    background-color: #333;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 30px;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.start-reading-btn:hover {
+    background-color: #555;
+}
+
+.book-actions {
+    display: flex;
+}
+
+.action-btn {
+    font-size: 1.5rem;
+    margin-right: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.action-btn:hover {
+    transform: scale(1.2);
+}
+
+/* Book Meta */
+.book-meta {
+    display: flex;
+    justify-content: space-between;
+}
+
+.book-description-section, .book-specs {
+    width: 48%;
+}
+
+h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.book-specs p {
+    margin-bottom: 20px;
+}
+
+.review {
+    display: block;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.reviewer-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    display: flex;
+}
+
+.reviewer-info {
+    font-size: 1rem;
+}
+
+.spec-section {
+    margin-bottom: 20px;
+}
+
+#comment-form{
+    padding: 1rem;
+    background-color: white;
+    border-radius: 12px;
+    margin-top: 3rem;
+}
+
+#comment-form p{
+    text-align: center;
+    font-size: large;
+}
+
+#form-control label{
+    display: block;
+}
+
+#form-control input,
+#form-control textarea{
+    display: block;
+}

@@ -1,0 +1,27 @@
+{% extends "base.html"%}
+{% load static %}
+
+
+{% block title %} Digital Library{% endblock title %}
+{% block styles %}<link rel="stylesheet" href="{% static "book_management/index.css" %}">{% endblock styles %}
+
+    
+    {% block content %}
+    <!-- Hero banner -->
+    <section id="hero">
+        <div class="container">
+            <h2>Welcome to the Future of Reading</h2>
+            <p>Browse through an extensive collection of books from all genres. Click a category to get started!</p>
+            {% if not request.user.is_authenticated %}
+            <a href="{% url "register" %}" class="cta-button">Register</a>
+            {% endif %} 
+            <a href="{% url "allbooks" %}" class="cta-button">Explore Now</a>
+            {% if not request.user.is_authenticated %}
+            <a href="{% url "login" %}" class="cta-button">Login</a>
+            {% endif %} 
+
+        </div>
+    </section>
+    {% endblock content %}
+
+

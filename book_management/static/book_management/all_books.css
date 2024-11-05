@@ -1,0 +1,161 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4fb;
+    color: #333;
+}
+
+.container1 {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-right: 1px solid #e0e0e0;
+    text-align: center;
+    border-radius: 12px;
+    height: 100%;
+}
+
+
+.menu ul {
+    list-style: none;
+}
+
+.menu ul li {
+    margin-bottom: 20px;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    display: block;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+.categories {
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px black;
+    background-color: white;
+    width: 100%;
+}
+
+
+.category-list {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.category-list button {
+    background-color: #e0e0e0;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.category-books {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+    gap: 1.5rem;
+}
+
+.no-book {
+    font-size: larger;
+    font-weight: bolder;
+}
+
+.category-book-card a{
+    text-decoration: none;
+    color: black;
+}
+
+.category-book-card {
+    background-color: white;
+    padding: 1rem .5rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.category-book-card img {
+    width: 80px;
+    height: 120px;
+    margin-bottom: 10px;
+}
+
+.category-book-card span{
+    padding: .5rem;
+    color: grey;
+    font-size: smaller;
+}
+
+.book-details {
+    width: 300px;
+    background-color: #041542;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.book-details img {
+    width: 150px;
+    height: 220px;
+    margin-bottom: 20px;
+}
+
+.book-details h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.book-details .ratings {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.book-details button {
+    padding: 15px;
+    background-color: #0084ff;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+}
+
+.pagination {
+    margin: 1rem auto;
+    text-align: center;
+}
+
+.step-links a{
+    text-decoration: none;
+    color: whitesmoke;
+    padding: .5rem 1rem;
+    background-color: #283593;
+    border-radius: 5px;
+}
+
+.current{
+    color: white;
+}

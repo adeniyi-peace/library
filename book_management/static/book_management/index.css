@@ -1,0 +1,36 @@
+/* Reset */
+
+
+
+
+
+/* Hero section */
+#hero {
+    
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+}
+
+#hero h2 {
+    font-size: 3rem;
+}
+
+#hero p {
+    font-size: 1.5rem;
+    margin: 20px 0;
+}
+
+.cta-button {
+    background-color: #FFEB3B;
+    color: #283593;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 5px;
+}
+
+.cta-button:hover {
+    background-color: #ffc107;
+}
+

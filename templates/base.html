@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static "styles.css" %}">
+    {% block styles %}{% endblock styles %}
+</head>
+<body>
+    <!-- Header with navigation -->
+    <header>
+        <div class="container header-container">
+            <h1 class="logo"><a href="{% url "index" %}">Digital Library</a></h1>
+            <form action="{% url "allbooks" %}" method="get" class="search">
+                <input name="search"  type="search"   placeholder="Search books"> 
+                <button type="submit">Search</button>
+            </form>
+            <nav id="nav">
+                <ul>
+                    <li><a href="{% url "genrelist" "fiction" %}">Fiction</a></li>
+                    <li><a href="{% url "genrelist" "non-fiction" %}">Non-Fiction</a></li>
+                    <li><a href="{% url "genrelist" "science" %}">Science</a></li>
+                    <li><a href="{% url "genrelist" "thriller" %}">Thriller</a></li>
+                    <li class="user-icon">
+                            <a href="#history" ><img src="{% static "profile.png" %}" alt="" width="30" height="30"> {{request.user.username|capfirst}}</a>
+                            <ul class="dropdown">
+                                {% if request.user.is_authenticated %}
+                                <li><a href="#" >Profile</a></li>
+                                <li><a href="{% url "logout" %}" >Logout</a></li>
+                                {% else %}
+                                <li><a href="{% url "login" %}" >Login</a></li>
+                                <li><a href="{% url "register" %}" >Register</a></li>
+                                {% endif %}
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    {% block content %}{% endblock content %}
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <p>&copy; 2024 Digital Library | All Rights Reserved</p>
+            <p>Designed by the Library Team</p>
+        </div>
+    </footer>
+</body>
+</html>

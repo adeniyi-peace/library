@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{book.title}}{% endblock title %}
+{% block styles %}<link rel="stylesheet" href="{% static "book_management/book_details1.css" %}">{% endblock styles %}
+
+{% block content %}
+    <div class="page-wrapper">
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="book-details">
+                <div class="book-cover-wrapper">
+                    <img src="{{book.cover_image.url}}" alt={{book.title}} class="book-cover">
+                </div>
+                <div class="book-info">
+                    <h1 class="book-title">{{book.title}}</h1>
+                    <h2 class="book-author">by  <a href="{% url "author_details" author.pk%}">{{book.author}}</a></h2>
+                    <p class="book-description">
+                        Genre: {% for genre in genres %} <a href="{% url "genrelist" genre %}">{{genre|title}}</a> {% endfor %}
+                    </p>
+                    <p>Ratings: {{ratings.ratings__avg}}</p>
+                    <button class="start-reading-btn">Start Reading</button>
+                    <div class="book-actions">
+                        <button class="action-btn">🔖</button>
+                        <button class="action-btn">🔗</button>
+                        <button class="action-btn">⬇️</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book-meta">
+                <div class="book-description-section">
+                    <h3>Description</h3>
+                    <p>{{book.description|linebreaks}}</p>
+
+                    <h2> Reviews </h2>
+                    <div class="review">
+                        <img src="" alt="" class="reviewer-avatar">
+                        <div class="reviewer-info">
+                            <p><strong>Roberto Jordan</strong></p>
+                            <p>What a delightful and magical book! It transports readers to the wizarding world.</p>
+                        </div>
+                        
+                        {% for comment in usercomment %}
+                        <img src="" alt="" class="reviewer-avatar">
+                        <div class="reviewer-info">
+                            <p><strong>{{comment.username|upper}}</strong></p>
+                            <p>{{comment.user_review|linebreaks}}</p>
+                        </div>{% endfor %}
+                    </div>
+
+                    
+                    <form action="{% url "book_detail" book.slug %}" method="post" id="comment-form">
+                        <p><strong>Your Review</strong></p>
+                        {% csrf_token %}
+                        {% for field in form  %}
+                        <div id="form-control">
+                            {{field.label_tag}}
+                            {{field}}
+                            {{field.error}}
+                        </div>{% endfor %}
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+
+
+                <div class="book-specs">
+                    <div class="spec-section">
+                        <h3>Publication Date</h3>
+                        <p>{{book.publication_date}}</p>
+                    </div>
+                    <div class="spec-section">
+                        <h3>Language</h3>
+                        <p>Standard English (USA & UK)</p>
+                    </div>
+                    <div class="spec-section">
+                        <h3>Paperback</h3>
+                        <p>Page count: {{book.page_count}}<br>ISBN: {{book.ISBN}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

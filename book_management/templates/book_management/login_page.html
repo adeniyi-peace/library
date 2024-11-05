@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{% if login %}Login{% else %}Register{% endif %}{% endblock title %}
+{% block styles %}<link rel="stylesheet" href="{% static "book_management/login.css" %}">{% endblock styles %}
+
+{% block content %}
+    <section id="login-form">
+        {% if login %}
+        <h2>Login</h2>
+        {% elif register %}
+            <h2>Register</h2>
+        {% endif %}
+        <form action="{% if login %}{% url "login" %}{% else %}{% url "register" %}{% endif %}" method="post">
+            {% csrf_token %}
+            {% for field in form%}
+            <div id="form-control{% if field.errors%} error{% endif %}">
+                {{field.label_tag}}
+                {{field}}
+                {{field.help_text}}
+                {{field.errors}}
+            </div>
+        {% endfor %}
+        {% if login %} <input type="hidden" name="next" value="{{next}}">  {% endif %}
+        <button type="submit">{% if login %}Login{% else %}Register{% endif %}</button>
+        </form>
+
+        {% if login %}
+        <h3>Don't have an account?</h3>
+        <a href="{% url "register" %}">sign up</a>
+        {% endif %}
+    </section>
+{% endblock content %}
