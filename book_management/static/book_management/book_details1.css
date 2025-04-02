@@ -163,3 +163,31 @@ h3 {
 #form-control textarea{
     display: block;
 }
+
+#form-control input{
+    width: 10%;
+}
+
+#form-control textarea{
+    width: 100%;
+}
+
+
+@media only screen and (max-width:600px){
+    .book-details{
+        flex-direction: column;
+    }
+
+    .book-cover-wrapper{
+        text-align: center;
+        margin-right: 40px;
+    }
+    
+    .book-meta{
+        flex-direction: column-reverse;
+    }
+
+    .book-description-section{
+        width: 90%;
+    }
+}

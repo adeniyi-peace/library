@@ -17,6 +17,7 @@
     width: 20rem;
     height: 25rem;
     border-radius: 12px;
+    object-fit: cover;
 }
 
 #author-name{
@@ -95,4 +96,14 @@
     width: 80px;
     height: 120px;
     margin-bottom: 10px;
+}
+
+@media only screen and (max-width:600px){
+    #author-detail{
+        flex-direction: column;
+    }
+
+    #related-works{
+        width: 90%;
+    }
 }

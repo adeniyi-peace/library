@@ -24,3 +24,4 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comments
         exclude = ["book", "username"]
+        widgets = {"ratings":forms.NumberInput(attrs={"min":"1", "max":"5"})}

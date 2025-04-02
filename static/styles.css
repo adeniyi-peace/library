@@ -23,16 +23,18 @@ header {
 }
 
 .header-container {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto auto auto;
     justify-content: space-between;
     align-items: center;
+    text-align: center;
 }
 
 .logo {
     font-size: 2rem;
     font-weight: bold;
-    margin-left: 5rem;
 }
+
 
 .logo a{
     text-decoration: none;
@@ -41,7 +43,6 @@ header {
 
 .search {
     display: flex;
-    margin-left: 8rem;
 }
 
 .search input{
@@ -53,6 +54,7 @@ header {
     border-radius: 8px;
 }
 
+
 nav ul {
     list-style: none;
     display: flex;
@@ -63,7 +65,6 @@ nav ul {
 nav ul li {
     position: relative;
     display: inline-block;
-    margin-left: 1rem;
 }
 
 nav ul li a {
@@ -99,6 +100,7 @@ nav ul li a:hover {
     display: none;
     padding: 1rem;
     border-radius: 8px;
+    right: 0.3rem;
     
 }
 
@@ -111,4 +113,38 @@ nav ul li:hover ul.dropdown{
     margin-left: 4rem;
     margin-top: -1rem;
     display: inline;
+}
+
+@media only screen and (max-width:768px) {
+    .header-container{
+        grid-template-columns: auto auto 25%;
+    }
+
+    .logo{
+        padding: 1rem;
+    }
+
+    header nav ul li{
+        display: none;
+    }
+
+    nav ul {
+        gap: 0;
+        margin-right: 0;
+        padding: 0;
+    }
+
+    .user-icon{
+        display: block;
+        margin-left: 0;
+        padding: 1rem;
+    }
+
+    header form{
+        width: 50%;
+    }
+
+    header form input{
+        width: 8rem;
+    }
 }

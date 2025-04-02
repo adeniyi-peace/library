@@ -1,7 +1,6 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 body {
@@ -10,9 +9,12 @@ body {
     color: #333;
 }
 
+header{
+    width: 100%;
+}
+
 .container1 {
     display: flex;
-    height: 100vh;
 }
 
 main {
@@ -21,11 +23,10 @@ main {
 }
 
 .categories {
-    padding: 1rem;
+    padding: 0.5rem;
     border-radius: 12px;
     box-shadow: 0 4px 8px black;
     background-color: white;
-    width: 100%;
     max-width: 60rem;
     margin: 0 auto;
 }
@@ -35,6 +36,13 @@ main {
     display: flex;
     gap: 10px;
     margin-bottom: 20px;
+}
+
+@media only screen and (max-width:768px){
+    .category-list {
+        overflow: scroll;
+        width: 85vw;
+    }
 }
 
 .category-list button {

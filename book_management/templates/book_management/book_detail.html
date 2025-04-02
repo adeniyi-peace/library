@@ -35,14 +35,12 @@
 
                     <h2> Reviews </h2>
                     <div class="review">
-                        <img src="" alt="" class="reviewer-avatar">
                         <div class="reviewer-info">
                             <p><strong>Roberto Jordan</strong></p>
                             <p>What a delightful and magical book! It transports readers to the wizarding world.</p>
                         </div>
                         
                         {% for comment in usercomment %}
-                        <img src="" alt="" class="reviewer-avatar">
                         <div class="reviewer-info">
                             <p><strong>{{comment.username|upper}}</strong></p>
                             <p>{{comment.user_review|linebreaks}}</p>

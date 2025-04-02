@@ -30,6 +30,12 @@
     border-radius: 5px;
 }
 
+@media only screen and (max-width:768px){
+    .cta-button{
+        padding: 1rem 1rem;
+    }
+}
+
 .cta-button:hover {
     background-color: #ffc107;
 }
